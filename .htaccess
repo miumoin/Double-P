@@ -1,0 +1,37 @@
+
+
+RewriteEngine on
+
+# If requested resource exists as a file or directory, skip next two rules
+#RewriteCond %{DOCUMENT_ROOT} -f [OR]
+#RewriteCond %{DOCUMENT_ROOT} -d
+#RewriteRule (.*) - [S=1]
+#
+
+RewriteCond %{REQUEST_URI} !((.+\..+)|(^/[a-z0-9_-]+/$)|(^/[a-z0-9_-]+$)) [NC]
+RewriteRule (.*)$ index.php [QSA,L]
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
+
+# mod_access - block users coming from
+Order deny,allow
+Deny from .yahoo.com
+Deny from bing.com
+Deny from .google.com
+Deny from .123people.de
+Deny from .findestars.de
+Deny from .myonid.de
+Deny from .peekyou.com
+Deny from .pipl.com
+Deny from .rapleaf.com
+Deny from .snitch.name
+Deny from .spock.com
+Deny from .tweepz.com
+Deny from .wink.com
+Deny from .yasni.de
+Deny from .yoname.com
+Deny from .yourtraces.com
+Deny from .zoominfo.com
