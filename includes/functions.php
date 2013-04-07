@@ -106,6 +106,23 @@ function current_user_info($parameter)
     else return false;
 }
 
+function db_connect()
+{
+	$link=mysql_connect(DB_HOST, DB_USER, DB_PASSWORD) or die('<h1>Could not connect to database</h1>');
+	mysql_select_db(DB_NAME,$link) or die('<h1>Could not connect to database</h1>');
+	return $link;
+}
+
+function form_processor()
+{
+	if(isset($_REQUEST['process']))
+	{
+		$func="process_".$_REQUEST['process'];
+		$func();
+		die();
+	}
+}
+
 //following function creates a pagination
 function paginate($total, $current_page, $total_every_page, $url)
 {

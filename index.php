@@ -11,6 +11,7 @@
 
     include("config/connection.php");
     include("includes/functions.php");
+    $link=db_connect();
     //breaking the url to many parts
     $break=explode("/", $url);
 
@@ -27,15 +28,13 @@
     $GLOBALS['url']=$uurl;
     /*------------------------------------Operations are started from here----------------------------------------*/
 
-
     $option=$break[$start];
-
+	
     if(($option!="")&&(is_dir("modules/".$option))) $module="modules/".$option;
-    else 
+    else
     {
         $module="modules/default";
         $option="default";
-    }   
-
+    }
     include($module."/".$option.".php");
  ?>

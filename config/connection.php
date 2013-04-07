@@ -5,10 +5,13 @@
  * Version: 1.0
  * Author: Moin Uddin
  */
-define("BASE","http://localhost/cm");
+ 
+define("BASE","http://localhost/Double-P");
 define("SPICE","ydtfm~");
-date_default_timezone_set('UTC');
 define("START", 2);
-$link=mysql_connect("localhost","root","") or die('Could not connect:'.mysql_error());
-mysql_select_db("db_name",$link) or die('Could not select database:'.mysql_error());
+define("DB_NAME", "blogblaster");
+define("DB_USER", "root");
+define("DB_PASSWORD", "123456");
+define("DB_HOST", "localhost");
+date_default_timezone_set('UTC');
 ?>
