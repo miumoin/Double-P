@@ -8,6 +8,7 @@
 function heading($title, $description, $keywords)
 {
     $base=BASE;
+    /*
     $flash_message=get_flash_message();
     if($flash_message!=0)
     {
@@ -15,7 +16,7 @@ function heading($title, $description, $keywords)
         elseif($flash_message['type']==0) $display_flash="<font color='red'><strong>".$flash_message['message']."</strong></font>";
     }
     $menus=top_menus();
-    $display_notice=display_notice(3);
+    $display_notice=display_notice(3);*/
 
     echo <<<html
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -23,26 +24,18 @@ function heading($title, $description, $keywords)
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
+		<meta charset="UTF-8" />
 		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-                <meta name='description' content='$description'/>
-                <meta name='keywords' content='$keywords'/>
+        <meta name='description' content='$description'/>
+        <meta name='keywords' content='$keywords'/>
 		<title>$title</title>
-		<link href="$base/files/css/stylesheet.css" rel="stylesheet" type="text/css"/>
-                <script type="text/javascript" src="$base/files/js/javascripts.js"></script>    
+		<link href="$base/files/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+		<link href="$base/files/assets/css/style.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="$base/files/js/javascripts.js"></script>    
     </head>
     <body>
-
-    <div class="container">
-        <div class="header">
-            <img src='$base/files/images/system/Heading.jpg' width='960'>
-            <div align='right' style='padding: 10px'>$menus</div>
-        </div>
-        <div class="content" align="">
-            <div class="contents">
-                <div id='message' align='center'>$display_flash</div>
-                <div id='notice'>$display_notice</div>
-
-                <div id='body' align=''>
+    
+		<div class="container full_page">
 html;
 }
 
@@ -51,13 +44,6 @@ function footing()
     $base=BASE;
     echo <<<html
             </div>
-        </div>
-    </div>
-    <br><br>
-        <img src='$base/files/images/system/Ground.jpg' width='960'>
-        <div id='bottom' align='center'>
-            <h6>Developed by: <i><a href='http://conceptuallyright.com/portfolios/cm_international' target='_blank'>Concept Lab</a></i></h6>
-        </div>
     </body>
 
 </html>

@@ -11,7 +11,7 @@
 
     include("config/connection.php");
     include("includes/functions.php");
-    $link=db_connect();
+    //$link=db_connect();
     //breaking the url to many parts
     $break=explode("/", $url);
 
