@@ -30,7 +30,10 @@ function heading($title, $description, $keywords)
         <meta name='keywords' content='$keywords'/>
 		<title>$title</title>
 		<link href="$base/files/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+		<link href="$base/files/assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
 		<link href="$base/files/assets/css/style.css" rel="stylesheet" type="text/css"/>
+		<script type='text/javascript' src='$base/files/assets/js/vendor/jquery-1.9.1.min.js'></script>		
+		<script type='text/javascript' src='$base/files/assets/js/bootstrap.min.js'></script>
         <script type="text/javascript" src="$base/files/js/javascripts.js"></script>    
     </head>
     <body>
