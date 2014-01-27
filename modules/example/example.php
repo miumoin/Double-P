@@ -7,7 +7,7 @@
  
 form_processor();
 
-heading('', '', '');
+heading();
 
 echo "<form action='".BASE."/example/?process=exampleform' method='post'><input type='text' name='hi'><input type='submit'></form>";
 

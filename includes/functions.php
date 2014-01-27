@@ -5,61 +5,15 @@
  * Version: 1.0
  * Author: Moin Uddin
  */
-function heading($title, $description, $keywords)
-{
-    $base=BASE;
-    /*
-    $flash_message=get_flash_message();
-    if($flash_message!=0)
-    {
-        if($flash_message['type']==1) $display_flash="<font color='green'><strong>".$flash_message['message']."</strong></font>";
-        elseif($flash_message['type']==0) $display_flash="<font color='red'><strong>".$flash_message['message']."</strong></font>";
-    }
-    $menus=top_menus();
-    $display_notice=display_notice(3);*/
-
-    echo <<<html
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-        <meta name='description' content='$description'/>
-        <meta name='keywords' content='$keywords'/>
-		<title>$title</title>
-		<link href="$base/files/assets/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-		<link href="$base/files/assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
-		<link href="$base/files/assets/css/style.css" rel="stylesheet" type="text/css"/>
-		<script type='text/javascript' src='$base/files/assets/js/vendor/jquery-1.9.1.min.js'></script>		
-		<script type='text/javascript' src='$base/files/assets/js/bootstrap.min.js'></script>
-        <script type="text/javascript" src="$base/files/js/javascripts.js"></script>    
-    </head>
-    <body>
-    
-		<div class="container full_page">
-html;
+function heading()
+{    
+    module_include("header");
 }
 
 function footing()
 {
     $base=BASE;
-    echo <<<html
-            </div>
-    </body>
-
-</html>
-html;
-}
-
-function top_menus()
-{
-    if(logged_in())
-    {
-        return "Logged In as <strong>".current_user_info("username")."</strong>, <a href='".BASE."/profile'>Profile</a><br><a href='".BASE."/home'>Home</a> | <a href='".BASE."/login/?logout=true'>Logout</a>";
-    }
-    else return "<a href='".BASE."'>Home</a> | <a href='".BASE."/login'>Login</a>";
+    module_include("footer");
 }
 
 function set_flash_message($message, $flag)
@@ -100,6 +54,11 @@ function db_connect()
 	$link=mysql_connect(DB_HOST, DB_USER, DB_PASSWORD) or die('<h1>Could not connect to database</h1>');
 	mysql_select_db(DB_NAME,$link) or die('<h1>Could not connect to database</h1>');
 	return $link;
+}
+
+function module_include($module)
+{
+	if(file_exists("modules/".$module."/".$module.".php")) include("modules/".$module."/".$module.".php");
 }
 
 function form_processor()
